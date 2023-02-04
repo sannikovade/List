@@ -8,7 +8,7 @@ public class Main {
         while (true) {
 
             System.out.println("Select the option number or type 'end': " + "\n1. Add item" +
-                    "\n2. Delete item" + "\n3. Show shopping list" + "\n3. Show shopping list");
+                    "\n2. Delete item" + "\n3. Show shopping list" + "\n4. Search");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             if (input.equals("end")) {
@@ -17,7 +17,7 @@ public class Main {
                 int operation = Integer.parseInt(input);
                 if (operation == 1) {
 
-                    System.out.println("Type the item to add to the list");
+                    System.out.println("Type in the item to add to the list");
                     Scanner scanner1 = new Scanner(System.in);
                     String item = scanner1.nextLine();
                     list.add(item);
@@ -27,7 +27,7 @@ public class Main {
                     for (int i = 0; i < list.size(); i++) {
                         System.out.println((i + 1) + ". " + list.get(i));
                     }
-                    System.out.println("Type the item or number to delete from the list");
+                    System.out.println("Type in the item or it's number to delete from the list");
                     Scanner scanner2 = new Scanner(System.in);
                     String item = scanner2.nextLine();
                     try {
@@ -46,6 +46,16 @@ public class Main {
                     for (int i = 0; i < list.size(); i++) {
                         System.out.println((i + 1) + ". " + list.get(i));
                     }
+                } else if (operation == 4) {
+                    System.out.println("Type in your search query:");
+                    Scanner scanner3 = new Scanner(System.in);
+                    String query = scanner3.nextLine();
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).toLowerCase().contains(query.toLowerCase())) {
+                            System.out.println((i + 1) + ". " + list.get(i));
+                        }
+                    }
+
                 }
             }
 
